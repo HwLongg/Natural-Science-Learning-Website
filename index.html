@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico?v=1">
+    <title>KHTN 9 | Tổng Hợp Tài Liệu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ================= THEME VARIABLES (NATURE GREEN EDITION) ================= */
+        :root {
+            --bg-color: #f7fdf9; 
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --primary-green: #2e7d32; 
+            --soft-green: #e8f5e9;
+            --card-bg: #ffffff;
+            --text-dark: #1b2e1c;
+            --text-light: #64748b;
+            --accent-science: #009688; 
+            --border: #e2e8f0;
+            --font-main: 'Be Vietnam Pro', system-ui, -apple-system, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #061007; 
+            --header-bg: rgba(6, 16, 7, 0.95);
+            --primary-green: #66bb6a;
+            --soft-green: #142a15;
+            --card-bg: #142a15;
+            --text-dark: #f1f5f9;
+            --text-light: #94a3b8;
+            --accent-science: #4db6ac;
+            --border: #2d3f2e;
+        }
+
+        /* ================= GENERAL SETUP ================= */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: linear-gradient(var(--soft-green) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--soft-green) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: var(--text-dark);
+            font-family: var(--font-main);
+            line-height: 1.6;
+        }
+
+        header {
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--header-bg);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--primary-green);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo-img {
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+            border-radius: 50%;
+            background: white;
+            padding: 4px;
+            border: 2px solid var(--primary-green);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .theme-switch {
+            background: var(--soft-green);
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+            padding: 8px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .theme-switch:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        /* ================= HERO & SEARCH ================= */
+        .hero { padding: 40px 5% 20px; text-align: center; }
+        .hero h1 { 
+            font-size: 2.5rem; 
+            color: var(--primary-green); 
+            margin-bottom: 10px; 
+            font-weight: 800;
+        }
+        
+        .search-container { max-width: 600px; margin: 20px auto; }
+        .search-box {
+            width: 100%; padding: 15px 25px; border: 2px solid var(--border);
+            border-radius: 12px; background: var(--card-bg); color: var(--text-dark); outline: none;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            font-family: var(--font-main);
+        }
+
+        /* ================= CARDS GRID ================= */
+        main { padding: 10px 5% 80px; max-width: 1200px; margin: 0 auto; }
+        .cards-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 20px; 
+        }
+
+        .math-card {
+            text-decoration: none; color: inherit; background: var(--card-bg);
+            border-radius: 15px; padding: 25px; border: 1px solid var(--border);
+            display: flex; flex-direction: column; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative; overflow: hidden;
+        }
+
+        .math-card::before {
+            content: "⚛"; position: absolute; right: -5px; top: -10px; font-size: 4.5rem;
+            color: var(--soft-green); opacity: 0.4; font-weight: bold;
+        }
+
+        .math-card:hover { 
+            transform: translateY(-8px); 
+            border-color: var(--primary-green); 
+            box-shadow: 0 15px 30px -10px rgba(46, 125, 50, 0.2); 
+        }
+
+        .card-emoji { font-size: 2.2rem; margin-bottom: 15px; z-index: 1; }
+        .card-title { font-size: 1.05rem; font-weight: 700; color: var(--primary-green); margin-bottom: 10px; z-index: 1; }
+        .card-desc { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; flex-grow: 1; z-index: 1; }
+        .card-meta { font-size: 0.85rem; font-weight: 600; color: var(--accent-science); border-top: 1px dashed var(--border); padding-top: 12px; }
+
+        footer { text-align: center; padding: 40px 20px; background: var(--header-bg); border-top: 1px solid var(--border); }
+        .author { color: var(--primary-green); font-weight: 800; font-size: 1.1rem; margin-top: 5px; display: block; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="images/logo.png" alt="Logo KHTN" class="logo-img">
+        <span>KHTN 9 - Tài Liệu Học Tập</span>
+    </div>
+
+    <div class="header-actions">
+        <a href="https://forms.gle/3EFuhxNX2c9X64mt5" target="_blank" class="theme-switch">
+            <span>⚠️</span>
+            <span>Báo Lỗi</span>
+        </a>
+
+        <button class="theme-switch" id="theme-toggle">
+            <span id="theme-icon">🌙</span>
+            <span id="theme-text">Chế độ tối</span>
+        </button>
+    </div>
+</header>
+
+    <section class="hero">
+        <h1>Khoa Học Tự Nhiên 9 🔬</h1>
+        <div class="search-container">
+            <input type="text" class="search-box" id="search-input" placeholder="Tìm tài liệu, đề thi KHTN... 🔍">
+        </div>
+    </section>
+
+    <main>
+        <div class="cards-grid" id="cards-container"></div>
+    </main>
+
+    <footer>
+        <p>Hệ thống lưu trữ tài liệu ôn tập & Kiểm tra Khoa học Tự nhiên 9 🌿</p>
+        <span class="author">Created by Nguyễn Hoàng Long 🔥</span>
+    </footer>
+
+    <script>
+        const cardData = [
+            { emoji: "🧪", title: "Sách KHTN 9 KNTT", url: "http://thcsxuantan.edu.vn/upload/49959/20240715/Khoa_hoc_tu_nhien_9_Ket_noi_tri_thuc_606ff.pdf", desc: "Sách giáo khoa Khoa học tự nhiên 9 - Kết nối tri thức với cuộc sống." },
+            { emoji: "📒", title: "Sách Bài Tập KHTN 9 KNTT", url: "https://drive.google.com/file/d/1k5w_Ndd8A0lMpajUHPswJDQJLNvTS70s/view", desc: "Sách bài tập bổ trợ, tổng hợp các câu hỏi vận dụng KHTN 9." },
+            { emoji: "🧬", title: "Các Đề GHK1 KHTN 9", url: "https://vndethi.com/chuyen-muc/de-thi-giua-ki-1-khtn-9/", desc: "Tổng hợp bộ đề thi giữa học kỳ 1 sát chương trình mới." },
+            { emoji: "🔭", title: "Các Đề CHK1 KHTN 9", url: "https://vndethi.com/chuyen-muc/de-thi-cuoi-ki-1-khtn-9/", desc: "Bộ sưu tập đề thi cuối học kỳ 1 (Vật lý, Hóa học, Sinh học)." },
+            { emoji: "🌿", title: "Các Đề GHK2 KHTN 9", url: "https://vndethi.com/chuyen-muc/de-thi-giua-ki-2-khtn-9/", desc: "Đề minh họa và đề thi chính thức giữa học kỳ 2." },
+            { emoji: "💡", title: "Các Đề CHK2 KHTN 9 (Ver1)", url: "https://vndethi.com/chuyen-muc/de-thi-cuoi-ki-2-khtn-9/", desc: "Dữ liệu đề thi cuối học kỳ 2 từ các trường THCS trên cả nước." },
+            { emoji: "📂", title: "Các Đề CHK2 KHTN 9 (Ver2)", url: "https://drive.google.com/file/d/1kNmpHLJssC1EiVdgQRZVtuHxHT5y1GWP/view", desc: "Tài liệu ôn tập cuối kỳ 2 bổ sung (File PDF tổng hợp)." }
+        ];
+
+        const container = document.getElementById('cards-container');
+        cardData.forEach(data => {
+            const card = document.createElement('a');
+            card.href = data.url;
+            card.target = "_blank";
+            card.className = "math-card";
+            card.innerHTML = `
+                <span class="card-emoji">${data.emoji}</span>
+                <div class="card-title">${data.title}</div>
+                <div class="card-desc">${data.desc}</div>
+                <div class="card-meta">Mở tài liệu ➜</div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const themeText = document.getElementById('theme-text');
+
+        toggleBtn.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            if (theme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                themeIcon.innerText = '🌙';
+                themeText.innerText = 'Chế độ tối';
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.innerText = '☀️';
+                themeText.innerText = 'Chế độ sáng';
+            }
+        });
+
+        // Search Logic
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            document.querySelectorAll('.math-card').forEach(card => {
+                card.style.display = card.textContent.toLowerCase().includes(term) ? 'flex' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
